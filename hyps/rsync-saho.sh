@@ -12,6 +12,7 @@ data_dir=(
 )
 lock_file=/tmp/rsync.lock
 
+ssh="sshpass -f $HOME/.pswd-saho"
 rsync="rsync -aP --exclude-from=/mnt/raid/user/hayakawa/data-transfer/exclude.txt"
 
 #______________________________________________________________________________
@@ -31,9 +32,9 @@ do
 		if [ -w $dat ]; then continue; fi
 		dat_list+=("$dat")
 	    done
-	    $rsync ${dat_list[@]} shuhei@saho-a:/np1b/hyps/rawdata/
+	    $ssh $rsync ${dat_list[@]} shuhei@saho-a:/np1b/hyps/rawdata/
 	else
-	    $rsync $d shuhei@saho-a:/np1b/hyps/
+	    $ssh $rsync $d shuhei@saho-a:/np1b/hyps/
 	fi
 	rm -f $lock_file
     done
