@@ -25,7 +25,7 @@ do
 	touch $lock_file
 	if [[ "$d" == *"rawdata"* ]]
 	then
-	    dat_list=(bookmark misc Messages recorder.log)
+	    dat_list=(bookmark misc Messages recorder.log checksum.txt compressor.log exclude.txt)
 	    # for dat in `ls *.dat.gz 2>/dev/null`
 	    for dat in `ls *.dat 2>/dev/null`
 	    do
